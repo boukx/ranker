@@ -1,25 +1,24 @@
-
 const bracket_data = [
-  [14, 60000, 13000, , 5, "=IF(E1 >= 3,(E1 - 2) * 5000,1000)","=INT(E1)"],
-  [13, 55000, 12000, , 10, "=INT((F1 * .6) + MIN((E2 - 1) * 2000, 26000))", "=IF(F2 >= 5000, MIN(INT(F2/5000) + 2, 14), 2)"],
-  [12, 50000, 11000, , 10, ,""],
-  [11, 45000, 10000, , 10],
-  [10, 40000, 9000, , 10],
-  [9, 35000, 8000, , 10],
-  [8, 30000, 7000, , 10],
-  [7, 25000, 6000, , 10],
-  [6, 20000, 5000, , 10],
-  [5, 15000, 4000, , 10],
-  [4, 10000, 3000, , 7],
-  [3, 5000, 2000, , 7],
-  [2, 2000, 1000, , 7],
-  [1, , 800],
+  [1, 0, 1, , , , "0"]
+  [2, 2000, 1, , 500000, "=MIN(MAX(F1, ((E2/$C$16)*65000-F1)*INDEX($C$1:$C$14,G1)),INDEX($B$1:$B$14,G1+4))", "=IF(F2 >= 5000, MIN(INT(F2/5000) + 2, 14), 2)"],
+  [3, 5000, 1, , 10, "=INT((E1 * .6) + MIN((D2 - 1) * 2000, 26000))"],
+  [4, 10000, .8, , 10, ,""],
+  [5, 15000, .8, , 10],
+  [6, 20000, .8, , 10],
+  [7, 25000, .7, , 10],
+  [8, 30000, .7, , 10],
+  [9, 35000, .6, , 10],
+  [10, 40000, .5, , 10],
+  [11, 45000, .5, , 10],
+  [12, 50000, .4, , 7],
+  [13, 55000, .4, , 7],
+  [14, 60000, .34, , 7],
   [],
-  [],
+  [ , , 750000],
 ];
 
 for (let i = 2; i < 13; i++) {
-    bracket_data[i][5] = bracket_data[1][5].replaceAll('F1', 'F' + i).replaceAll('E2', 'E' + (i + 1))
+    bracket_data[i][5] = bracket_data[1][5].replaceAll('F1', 'F' + i).replaceAll('E2', 'E' + (i + 1)).replaceAll('G1', 'G' + i)
     bracket_data[i][6] = bracket_data[1][6].replaceAll('F2', 'F' + (i + 1))
 }
 
@@ -33,7 +32,7 @@ const hot1 = new Handsontable(bracket_container, {
   formulas: {
     engine: hfInstance,
   },
-  colHeaders: ['', 'Req RP', 'Max Gain', '', 'Bracket', 'RP', 'Standing'],
+  colHeaders: ['Rank', 'Req CP', 'Keep Coef', ,'Honor', 'CP', 'Standing'],
   height: 'auto',
   licenseKey: 'non-commercial-and-evaluation',
   fillHandle: {
@@ -44,11 +43,39 @@ const hot1 = new Handsontable(bracket_container, {
         range: {
           from: {
             row: 0,
-            col: 4
+            col: 3
           },
           to: {
             row: 13,
-            col: 4
+            col: 3
+          }
+        },
+        top: {
+          width: 2,
+          color: 'magenta'
+        },
+        left: {
+          width: 2,
+          color: 'orange'
+        },
+        bottom: {
+          width: 2,
+          color: 'red'
+        },
+        right: {
+          width: 2,
+          color: '#5292F7'
+        }
+      },
+      {
+        range: {
+          from: {
+            row: 1,
+            col: 5
+          },
+          to: {
+            row: 1,
+            col: 5
           }
         },
         top: {
