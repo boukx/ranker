@@ -19,7 +19,7 @@ const bracket_data = [
 
 for (let i = 2; i < 13; i++) {
     bracket_data[i][5] = bracket_data[1][5].replaceAll('F1', 'F' + i).replaceAll('E2', 'E' + (i + 1)).replaceAll('G1', 'G' + i)
-    bracket_data[i][6] = bracket_data[1][6].replaceAll('F2', 'F' + (i + 1))
+    bracket_data[i][6] = bracket_data[1][6].replaceAll('F2', 'F' + (i + 1)).replaceAll('G1', 'G' + i)
 }
 
 const hfInstance = HyperFormula.buildEmpty({
