@@ -46,7 +46,7 @@ const hot1 = new Handsontable(bracket_container, {
             col: 4
           },
           to: {
-            row: 13,
+            row: 12,
             col: 4
           }
         },
