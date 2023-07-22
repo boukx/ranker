@@ -1,18 +1,18 @@
 const bracket_data = [
-  [1, 0, 1, , , , "0"],
-  [2, 2000, 1, , 500000, "=MIN(MAX(F1, ((E2/$C$16)*65000-F1)*INDEX($C$1:$C$14,G1)),INDEX($B$1:$B$14,G1+4))", "=IF(F2 >= 5000, MIN(INT(F2/5000) + 2, 14), 2)"],
-  [3, 5000, 1, , 10, "=INT((E1 * .6) + MIN((D2 - 1) * 2000, 26000))"],
-  [4, 10000, .8, , 10, ,""],
-  [5, 15000, .8, , 10],
-  [6, 20000, .8, , 10],
-  [7, 25000, .7, , 10],
-  [8, 30000, .7, , 10],
-  [9, 35000, .6, , 10],
-  [10, 40000, .5, , 10],
-  [11, 45000, .5, , 10],
-  [12, 50000, .4, , 7],
-  [13, 55000, .4, , 7],
-  [14, 60000, .34, , 7],
+  [1, 0, 1, , , , 1],
+  [2, 2000, 1, , 300000, "=MIN(MAX(F1, ((E2/$C$16)*65000-F1)*INDEX($C$1:$C$14,G1)),INDEX($B$1:$B$14,G1+4))", "=IF(F2 >= 5000, MIN(INT(F2/5000) + 2, 14), 2)"],
+  [3, 5000, 1, , 300000, "=INT((E1 * .6) + MIN((D2 - 1) * 2000, 26000))"],
+  [4, 10000, .8, , 500000, ,""],
+  [5, 15000, .8, , 500000],
+  [6, 20000, .8, , 750000],
+  [7, 25000, .7, , 750000],
+  [8, 30000, .7, , 750000],
+  [9, 35000, .6],
+  [10, 40000, .5],
+  [11, 45000, .5],
+  [12, 50000, .4],
+  [13, 55000, .4],
+  [14, 60000, .34],
   [],
   [ , , 750000],
 ];
@@ -32,7 +32,7 @@ const hot1 = new Handsontable(bracket_container, {
   formulas: {
     engine: hfInstance,
   },
-  colHeaders: ['Rank', 'Req CP', 'Keep Coef', ,'Honor', 'CP', 'Standing'],
+  colHeaders: ['Rank', 'Req CP', 'Keep Coef', ' ','Honor', 'CP', 'Standing'],
   height: 'auto',
   licenseKey: 'non-commercial-and-evaluation',
   fillHandle: {
@@ -42,12 +42,12 @@ const hot1 = new Handsontable(bracket_container, {
       {
         range: {
           from: {
-            row: 0,
-            col: 3
+            row: 1,
+            col: 4
           },
           to: {
             row: 13,
-            col: 3
+            col: 4
           }
         },
         top: {
@@ -70,12 +70,12 @@ const hot1 = new Handsontable(bracket_container, {
       {
         range: {
           from: {
-            row: 1,
-            col: 5
+            row: 0,
+            col: 6
           },
           to: {
-            row: 1,
-            col: 5
+            row: 0,
+            col: 6
           }
         },
         top: {
